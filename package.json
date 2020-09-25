@@ -1,7 +1,7 @@
 {
   "name": "re-websocket",
   "version": "0.0.1",
-  "description": "封住ws的使用",
+  "description": "ws的封装",
   "main": "index.js",
   "dependencies": {
     "typescript": "^4.0.3"
