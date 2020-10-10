@@ -13,6 +13,7 @@ interface IConfig {
 	/** 心跳间隔默认1分钟 */
 	heartbeatInterval: number
 }
+
 /** ws 类型 */
 interface IReWebSocketProps {
 	/** websocket连接url */
