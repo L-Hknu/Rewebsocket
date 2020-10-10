@@ -3,7 +3,9 @@ interface IConfig {
 	/** 数据格式 */
 	binaryType:'blob' | 'arraybuffer'
 	/** 是否初始化连接 */
-	isAutomaticOpen: boolean
+  isAutomaticOpen: boolean
+  /** 是否开启重连 */
+  isReconnect: boolean
 	/** 尝试重新连接之前要延迟的毫秒数*/
 	reconnectInterval: number
 	/** 尝试进行的最大重新连接数。如果为null，则为无限 */
@@ -13,9 +15,8 @@ interface IConfig {
 	/** 心跳间隔默认1分钟 */
 	heartbeatInterval: number
 }
-
 /** ws 类型 */
-interface IReWebSocketProps {
+interface IMkWebSocketProps {
 	/** websocket连接url */
 	url: string
 	/** 配置 */
@@ -32,7 +33,7 @@ interface IEventPool {
 }
 /** class 所有内容 */
 //@ts-ignore
-interface ReWebSocket {
+interface MkWebSocket {
   /** WebSocket实例 */
 	ws: WebSocket
   /**请求的HTTP */
@@ -42,7 +43,7 @@ interface ReWebSocket {
   /**配置 */
   config:IConfig
   /** 传递参数 */
-  props: IReWebSocketProps
+  props: IMkWebSocketProps
   /** 心跳计时器 */
   heartbeatTime: any 
   /** 重连计时器 */
@@ -80,9 +81,13 @@ interface ReWebSocket {
   /** 监听错误 */
   onError: (err) => void
   /** 添加通知事件 */
-  addEventListener: (type:string,listener:Function) => void
+  addEvent: (type:string,listener:Function) => void
   /** 通知事件 */
-  removeEventListener: (type:string,listener:Function) => void
+  removeEvent: (type:string,listener:Function) => void
+  /** 添加分类事件 */
+  addModuleEvent: (module:string,type:string,listener:Function) => void
+  /** 移除分类事件 */
+  removeModuleEvent: (module:string,type:string,listener:Function) => void
 }
 interface IMkWebSocket {
   /** 打开ws链接 */
@@ -96,9 +101,13 @@ interface IMkWebSocket {
   /** 获取ws状态 */
   readyState: () => number 
   /** 添加通知事件 */
-  addEventListener: (type:string,listener:Function) => void
+  addEvent: (type:string,listener:Function) => void
   /** 通知事件 */
-  removeEventListener: (type:string,listener:Function) => void
+  removeEvent: (type:string,listener:Function) => void
+  /** 添加分类事件 */
+  addModuleEvent: (module:string,type:string,listener:Function) => void
+  /** 移除分类事件 */
+  removeModuleEvent: (module:string,type:string,listener:Function) => void
   /** 手动通知事件更新 */
   handDispatchEvent: (e?:any) => void
   /** 自定义心跳 */
@@ -112,7 +121,7 @@ interface IMkWebSocket {
 }
 export {
 	IConfig,
-	IReWebSocketProps,
+	IMkWebSocketProps,
 	IEventPool,
 	IMkWebSocket
 }
