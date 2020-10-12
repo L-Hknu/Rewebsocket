@@ -42,7 +42,7 @@ function initPageShareID (){
 /** 是否启动ws */
 function isStartWs (){
   if(window['sharePageID'] !== getShareList()[0]) return
-  mk['mkWebScoket']!.handOpen()
+  window['reWebScoket']!.handOpen()
 }
 export {
   initPageShareID,
