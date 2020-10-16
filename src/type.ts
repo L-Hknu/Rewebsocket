@@ -16,7 +16,7 @@ interface IConfig {
 	heartbeatInterval: number
 }
 /** ws 类型 */
-interface IMkWebSocketProps {
+interface IShareWebSocketProps {
 	/** websocket连接url */
 	url: string
 	/** 配置 */
@@ -33,7 +33,7 @@ interface IEventPool {
 }
 /** class 所有内容 */
 //@ts-ignore
-interface MkWebSocket {
+interface ShareWebSocket {
   /** WebSocket实例 */
 	ws: WebSocket
   /**请求的HTTP */
@@ -43,7 +43,7 @@ interface MkWebSocket {
   /**配置 */
   config:IConfig
   /** 传递参数 */
-  props: IMkWebSocketProps
+  props: IShareWebSocketProps
   /** 心跳计时器 */
   heartbeatTime: any 
   /** 重连计时器 */
@@ -89,7 +89,7 @@ interface MkWebSocket {
   /** 移除分类事件 */
   removeModuleEvent: (module:string,type:string,listener:Function) => void
 }
-interface IMkWebSocket {
+interface IShareWebSocket {
   /** 打开ws链接 */
   handOpen: () => void
   /** 关闭链接 */
@@ -121,7 +121,7 @@ interface IMkWebSocket {
 }
 export {
 	IConfig,
-	IMkWebSocketProps,
+	IShareWebSocketProps,
 	IEventPool,
-	IMkWebSocket
+	IShareWebSocket
 }
