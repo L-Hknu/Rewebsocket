@@ -58,13 +58,11 @@ function isStartWs (){
   if(getShareList()[0]&&newDate-Number(getShareList()[0])>10800){
     window.localStorage.setItem(SHARE_NAME,'[]')
   }
-  if(window[SHARE_PAGE_ID] !== getShareList()[0]){
-    onwsStorage(()=>{
-      window[WS_NAME].handDispatchEvent({data:{subType:'sys.notify'}})
-    })
-  }else{
-    window[WS_NAME]!.handOpen()
-  }
+  onwsStorage(()=>{
+    if(window[WS_NAME]&&window[WS_NAME].readyState()===1) return
+    window[WS_NAME].handDispatchEvent({data:{subType:'sys.notify'}})
+  })
+  window[WS_NAME]!.handOpen()
 }
 export {
   initPageShareID,

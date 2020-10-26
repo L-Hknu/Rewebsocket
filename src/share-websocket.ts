@@ -179,6 +179,7 @@ export default class ShareWebSocket implements IShareWebSocket   {
   }
   /** 移除分类事件 */
   removeModuleEvent (module:string,type:string,listener:Function){
+    if(!this.moduleEventPool[module]||this.moduleEventPool[module].length) return
     let counter = 0
     while (counter<this.moduleEventPool[module].length) {
       const eventListener = this.moduleEventPool[module][counter]
