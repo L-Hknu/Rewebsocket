@@ -1,12 +1,14 @@
 {
-  "name": "re-websocket",
-  "version": "0.0.1",
-  "description": "websocket的封装库",
+  "name": "share-websocket",
+  "version": "1.0.0",
+  "description": "websocket的封装库,包含重连心跳 共享功能",
   "main": "index.js",
   "dependencies": {
     "typescript": "^4.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
