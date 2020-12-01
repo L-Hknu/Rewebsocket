@@ -35,7 +35,7 @@
 |方法|类型|说明|
 | ------------- | ------------- | ------------- |
 |url| string|websocket连接url|
-|config| Partial<IConfig>|配置|
+|config| IConfig|配置|
 |protocols| any|子协议|
     
 
