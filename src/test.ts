@@ -9,6 +9,7 @@ class Notfiy extends ShareWebSocket{
 }
 const SYS_IM_URL = '/data/im/webSocket'
 /** 创建websoket */
+
 export  function createWebScoket () {
   const  host = location.host,
     protocol = location.protocol === 'http:'?'ws://':'wss://'
